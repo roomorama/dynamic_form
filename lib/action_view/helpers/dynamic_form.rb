@@ -207,7 +207,7 @@ module ActionView
               value = options[key]
               html[key] = value unless value.blank?
             else
-              html[key] = defined?(Settings) ? Settings.error_messages.send(key) : 'error_explanation'
+              html[key] = defined?(Settings) ? Settings.error_messages.send("error_#{key}") : 'error_explanation'
             end
           end
           options[:object_name] ||= params.first
